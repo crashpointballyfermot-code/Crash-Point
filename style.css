@@ -52,57 +52,37 @@ header {
 h2 { color:#ff6600; margin-bottom:30px; }
 
 /* SLIDER */
+/* Styl dla slidera */
 .slider-wrapper {
-    position:relative;
-    margin:0 auto;
-    max-width:1200px;
-    display:flex;
-    align-items:center;
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .slider {
-    display:flex;
-    overflow-x:auto;
-    scroll-behavior:smooth;
-    gap:15px;
-    padding:10px 0;
+    display: flex;             /* To układa zdjęcia w poziomie */
+    overflow-x: auto;          /* Pozwala na przewijanie palcem/myszką */
+    scroll-behavior: smooth;   /* Płynne przewijanie */
+    gap: 15px;
+    padding: 20px 0;
 }
 
 .slide {
-    flex:0 0 240px;
-    background:#111;
-    border-radius:8px;
-    text-align:center;
-    cursor:pointer;
+    flex: 0 0 300px;           /* Szerokość jednego zdjęcia (ustaw ile chcesz) */
+    text-align: center;
 }
 
 .slide img {
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:6px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;         /* Zdjęcia nie będą rozciągnięte */
+    border-radius: 8px;
 }
 
-.slide figcaption {
-    margin-top:8px;
-    color:#ff6600;
-    font-size:0.9rem;
+/* Ukrycie paska przewijania (opcjonalnie) */
+.slider::-webkit-scrollbar {
+    display: none;
 }
-
-/* SLIDER BUTTONS */
-.prev, .next {
-    background:#ff6600;
-    border:none;
-    color:#fff;
-    padding:10px;
-    cursor:pointer;
-    font-size:1.5rem;
-    border-radius:6px;
-}
-
-.prev { margin-right:10px; }
-.next { margin-left:10px; }
-
 /* CONTACT */
 #contact { padding:40px 20px; text-align:center; }
 .contact-form {
@@ -158,6 +138,7 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
+
 
 
 
