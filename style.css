@@ -53,32 +53,39 @@ h2 { color:#ff6600; margin-bottom:30px; }
 
 /* SLIDER */
 
-.slider {
 .slider-wrapper {
-    overflow: hidden; /* Ukrywamy to, co wystaje poza ekran */
+    overflow: hidden;
     width: 100%;
     position: relative;
 }
 
 .slider {
-    display: flex; /* Układa zdjęcia w poziomie */
-    flex-wrap: nowrap; /* WAŻNE: zabrania zdjęciom przechodzenia pod spód */
-    overflow-x: auto; /* Pozwala na ruch */
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     scroll-behavior: smooth;
     gap: 15px;
-    -ms-overflow-style: none;  /* Ukrywa pasek w IE */
-    scrollbar-width: none;  /* Ukrywa pasek w Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
-/* Ukrywa pasek przewijania w Chrome/Safari */
 .slider::-webkit-scrollbar {
     display: none;
 }
 
 .slide {
-    flex: 0 0 300px; /* Każdy slajd ma dokładnie 300px szerokości */
+    flex: 0 0 300px;
     max-width: 300px;
 }
+
+.slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
 
 /* CONTACT */
 #contact { padding:40px 20px; text-align:center; }
@@ -135,6 +142,7 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
+
 
 
 
