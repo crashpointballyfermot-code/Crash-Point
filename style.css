@@ -53,30 +53,24 @@ h2 { color:#ff6600; margin-bottom:30px; }
 
 /* SLIDER */
 /* Styl dla slidera */
-.slider-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
 .slider {
-    display: flex;             /* To układa zdjęcia w poziomie */
-    overflow-x: auto;          /* Pozwala na przewijanie palcem/myszką */
-    scroll-behavior: smooth;   /* Płynne przewijanie */
+    display: flex;
+    overflow-x: hidden; /* Ukrywa pasek przewijania, by nie psuł wyglądu */
+    scroll-behavior: smooth;
     gap: 15px;
     padding: 20px 0;
 }
 
 .slide {
-    flex: 0 0 300px;           /* Szerokość jednego zdjęcia (ustaw ile chcesz) */
-    text-align: center;
+    flex: 0 0 300px; /* Stała szerokość zdjęcia */
 }
 
 .slide img {
     width: 100%;
     height: 200px;
-    object-fit: cover;         /* Zdjęcia nie będą rozciągnięte */
-    border-radius: 8px;
+    object-fit: cover;
+    border-radius: 10px;
+
 }
 
 /* Ukrycie paska przewijania (opcjonalnie) */
@@ -138,6 +132,7 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
+
 
 
 
