@@ -1,126 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crash Point - Car & Body Repair</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crash Point - Car & Body Repair</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- HEADER -->
 <header>
     <div class="header-top">
         <img src="images/logo.png" alt="Crash Point Logo" class="logo">
-
         <div class="header-info">
-            <p>Unit 8 Green Isle Business Park, Clodalkin, Dublin 22</p>
+            <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22</p>
             <p>📞 +353 87 237 25 91</p>
             <p>✉️ crashpointballyfermot@gmail.com</p>
         </div>
     </div>
-
-    <a href="tel:+353872372591" class="call-us">Call Us</a>
+    <a href="tel:+353872372591" class="call-us">Zadzwoń do nas</a>
 </header>
 
-<!-- ABOUT -->
 <section id="about">
-     <h2>About</h2>
+    <h2>O nas</h2>
     <img src="images/about.jpg" alt="About Crash Point" class="about-img">
     <p>
-        Crash Point is your trusted car repair and bodywork specialist in Dublin. 
-        We provide full mechanical services including 
-        <strong>engine, clutch, gearbox replacement</strong>, 
-        <strong>panel beating</strong>, <strong>welding</strong>, and <strong>paint work</strong>.
-        Whether it’s minor repairs or large mechanical jobs, we’ve got you covered.
+        Crash Point to Twój zaufany specjalista od napraw samochodowych i blacharstwa w Dublinie. 
+        Oferujemy pełen zakres usług mechanicznych, w tym 
+        <strong>wymianę silnika, sprzęgła, skrzyni biegów</strong>, 
+        <strong>blacharstwo</strong>, <strong>spawanie</strong> oraz <strong>lakiernictwo</strong>.
+    </p>
 </section>
 
-</h2>
-
-    <div class="slider">
-        <figure class="slide">
 <section id="services">
-    <h2>Our Services</h2>
-
-    <div class="slider" id="slider">
-
-        <figure class="slide">
-            <img src="images/bodywork.jpg" alt="Panel Beating">
-            <figcaption>Panel Beating</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/bodywork1.jpg" alt="Panel Beating">
-            <figcaption>Panel Beating</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/bodywork2.jpg" alt="Panel Beating">
-            <figcaption>Panel Beating</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/bodywork3.jpg" alt="Panel Beating">
-            <figcaption>Panel Beating</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/bodywork4.jpg" alt="Panel Beating">
-            <figcaption>Panel Beating</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/paint.jpg" alt="Paint Work">
-            <figcaption>Paint Work</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/paint2.jpg" alt="Paint Work">
-            <figcaption>Paint Work</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/paint3.jpg" alt="Paint Work">
-            <figcaption>Paint Work</figcaption>
-        </figure>
-
-        <figure class="slide">
-            <img src="images/welding.jpg" alt="Welding">
-            <figcaption>Welding</figcaption>
-        </figure>
-
+    <h2>Nasze Usługi</h2>
     
+    <div class="slider-wrapper">
+        <button class="prev-btn" onclick="scrollSlider(-1)">&#10094;</button>
+        
+        <div class="slider" id="slider">
+            <figure class="slide">
+                <img src="images/bodywork.jpg" alt="Panel Beating">
+                <figcaption>Blacharstwo</figcaption>
+            </figure>
 
+            <figure class="slide">
+                <img src="images/bodywork1.jpg" alt="Panel Beating">
+                <figcaption>Blacharstwo</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="images/paint.jpg" alt="Paint Work">
+                <figcaption>Lakiernictwo</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="images/paint2.jpg" alt="Paint Work">
+                <figcaption>Lakiernictwo</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="images/welding.jpg" alt="Welding">
+                <figcaption>Spawanie</figcaption>
+            </figure>
+            
+            </div>
+
+        <button class="next-btn" onclick="scrollSlider(1)">&#10095;</button>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
-    <h2>Contact Us</h2>
+    <h2>Kontakt</h2>
     <form class="contact-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
+        <input type="text" placeholder="Twoje Imię" required>
+        <input type="email" placeholder="Twój Email" required>
+        <textarea placeholder="Twoja wiadomość" rows="5" required></textarea>
+        <button type="submit">Wyślij wiadomość</button>
     </form>
 </section>
 
 <footer>
-    © 2026 Crash Point. All rights reserved.
+    <p>&copy; 2026 Crash Point. Wszelkie prawa zastrzeżone.</p>
 </footer>
-<script src="script.js"></script>
 
+<script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
