@@ -25,23 +25,21 @@ header {
 
 .header-top {
     display: flex;
-    justify-content: center; /* centrum headera */
+    justify-content: space-between; /* logo na środku */
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    position: relative;
-}
-
-.header-left {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
 }
 
 header .logo {
-    height: 60px;
+    height: 100px; /* większe logo */
     margin: 0 auto;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
 }
 
 header .call-us {
@@ -50,7 +48,6 @@ header .call-us {
     padding: 8px 16px;
     border-radius: 6px;
     font-weight: bold;
-    margin-top: 5px;
     display: inline-block;
 }
 
@@ -149,13 +146,11 @@ footer {
     .header-top {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
     }
-    .header-left {
+    .header-right {
         align-items: center;
         text-align: center;
-    }
-    header .call-us {
-        margin-top: 5px;
     }
 }
 </style>
@@ -164,12 +159,13 @@ footer {
 
 <header>
     <div class="header-top">
-        <div class="header-left">
+        <div></div> <!-- pusta lewa strona -->
+        <img src="images/logo.png" alt="Crash Point Logo" class="logo">
+        <div class="header-right">
             <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22</p>
             <p>📞 +353 87 237 25 91</p>
             <a href="tel:+353872372591" class="call-us">Call Us</a>
         </div>
-        <img src="images/logo.png" alt="Crash Point Logo" class="logo">
     </div>
 </header>
 
@@ -221,9 +217,9 @@ let scrollAmount = 0;
 
 setInterval(() => {
     if(scrollAmount >= slider.scrollWidth - slider.clientWidth){
-        scrollAmount = 0; // powrót do początku
+        scrollAmount = 0;
     } else {
-        scrollAmount += 270; // przesuwamy o szerokość jednego slajdu + gap
+        scrollAmount += 270;
     }
     slider.scrollTo({
         left: scrollAmount,
@@ -234,6 +230,8 @@ setInterval(() => {
 
 </body>
 </html>
+
+
 
 
 
