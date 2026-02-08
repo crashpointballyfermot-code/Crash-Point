@@ -45,3 +45,10 @@ function moveSlider() {
 
 // Automatyczne przewijanie co 5 sekund
 setInterval(moveSlider, 5000);
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.slider');
+    slider.addEventListener('click', () => {
+        console.log('klik');
+    });
+});
+
