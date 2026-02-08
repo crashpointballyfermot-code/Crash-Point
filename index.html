@@ -1,79 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crash Point - Car & Body Repair</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* ----------------- Sekcja i Slider CSS ----------------- */
-        /* Nagłówki sekcji - About Us i Our Services */
-        #about h2,
-        #services h2 {
-            text-align: center;
-            font-size: 2.5em; /* taki sam rozmiar dla obu */
-            margin: 20px 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crash Point - Car & Body Repair</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ----------------- Nagłówki ----------------- */
+#about h2,
+#services h2 {
+    text-align: center;
+    font-size: 2.5em; /* wyrównany rozmiar */
+    margin: 20px 0;
+}
 
-        #services h2 {
-            color: #ff6600; /* jaskrawy pomarańcz */
-        }
+#services h2 {
+    color: #ff6600; /* jaskrawy pomarańcz */
+}
 
-        .slider-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            background: none; /* przezroczyste tło */
-        }
+/* ----------------- Poziomy Slider ----------------- */
+.slider-wrapper {
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 20px auto;
+}
 
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 450px;
-        }
+.slider {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end; /* podpisy na dole */
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent); /* gradient dla podpisów */
-        }
+.slide {
+    flex: 0 0 300px; /* szerokość jednego zdjęcia */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .slide.active {
-            opacity: 1;
-        }
+.slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+}
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
-        }
+.slide figcaption {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    text-align: center;
+}
 
-        .slide figcaption {
-            margin-top: 10px;
-            font-size: 1.2em;
-            color: #fff;
-            font-weight: 500;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-            z-index: 5;
-        }
-    </style>
+/* ----------------- Reszta stylów ----------------- */
+header, footer, section {
+    padding: 20px;
+    text-align: center;
+}
+
+header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    height: 60px;
+}
+</style>
 </head>
 <body>
 
@@ -92,7 +88,6 @@
 <section id="about">
     <h2>About Us</h2>
     <img src="images/about.jpg" alt="About Crash Point" class="about-img">
-
     <p>Crash Point is your trusted car repair and bodywork specialist in Dublin. 
     We provide full mechanical services including 
     <strong>engine, clutch, gearbox replacement</strong>, 
@@ -104,7 +99,7 @@
     <h2>Our Services</h2>
     <div class="slider-wrapper">
         <div class="slider" id="slider">
-            <figure class="slide active"><img src="images/bodywork.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
+            <figure class="slide"><img src="images/bodywork.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
             <figure class="slide"><img src="images/bodywork1.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
             <figure class="slide"><img src="images/bodywork2.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
             <figure class="slide"><img src="images/bodywork3.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
@@ -133,22 +128,25 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('slider');
     const slides = document.querySelectorAll('.slide');
-    if (!slides.length) return;
-
-    let currentIndex = 0;
-    slides[currentIndex].classList.add('active');
+    const slideWidth = slides[0].offsetWidth + 20; // 20px gap
+    let index = 0;
 
     setInterval(() => {
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % slides.length;
-        slides[currentIndex].classList.add('active');
-    }, 5000);
+        index++;
+        // Reset, żeby wrócić do początku
+        if(index > slides.length - Math.floor(slider.parentElement.offsetWidth / slides[0].offsetWidth)){
+            index = 0;
+        }
+        slider.style.transform = `translateX(-${index * slideWidth}px)`;
+    }, 3000); // zmiana co 3 sekundy
 });
 </script>
 
 </body>
 </html>
+
 
 
 
