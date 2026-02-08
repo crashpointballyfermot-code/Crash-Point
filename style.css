@@ -1,5 +1,7 @@
+/* RESET STYLES */
 * { margin:0; padding:0; box-sizing:border-box; }
 
+/* BODY */
 body {
     background-color:#000;
     color:#fff;
@@ -156,7 +158,6 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
-
 
 
 
