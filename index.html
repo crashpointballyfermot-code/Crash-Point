@@ -11,23 +11,11 @@
             position: relative;
             width: 100%;
             max-width: 900px;
-            margin: 40px auto;
+            margin: 20px auto;
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.15);
             background: none; /* przezroczyste tło */
-        }
-
-        .slider-title {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 3em;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-            z-index: 10;
-            pointer-events: none;
         }
 
         .slider {
@@ -73,6 +61,14 @@
             text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
             z-index: 5;
         }
+
+        /* Nagłówek nad sliderem */
+        #services h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin: 20px 0;
+            color: #333;
+        }
     </style>
 </head>
 <body>
@@ -101,8 +97,8 @@
 </section>
 
 <section id="services">
+    <h2>Our Services</h2>
     <div class="slider-wrapper">
-        <h2 class="slider-title">Our Services</h2>
         <div class="slider" id="slider">
             <figure class="slide active"><img src="images/bodywork.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
             <figure class="slide"><img src="images/bodywork1.jpg" alt="Panel Beating"><figcaption>Panel Beating</figcaption></figure>
@@ -149,3 +145,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </body>
 </html>
+
+
