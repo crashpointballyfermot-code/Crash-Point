@@ -51,13 +51,11 @@ header {
 .about-img { max-width:500px; width:100%; margin:0 auto 20px; border-radius:8px; }
 h2 { color:#ff6600; margin-bottom:30px; }
 
-/* SLIDER */
-
+/* SLIDER - NOWA WERSJA */
 .slider-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
+  width: 90%;
+  max-width: 1000px;
+  margin: 50px auto;
   overflow: hidden;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -65,53 +63,31 @@ h2 { color:#ff6600; margin-bottom:30px; }
 
 .slider {
   display: flex;
-  width: 100%;
-  transition: transform 0.7s ease-in-out;
+  width: max-content; /* dostosowuje szerokość do wszystkich slajdów */
+  transition: transform 1s ease;
 }
 
 .slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  text-align: center;
+  flex: 0 0 auto;
+  width: 200px; /* szerokość pojedynczego zdjęcia */
+  margin-right: 10px;
   position: relative;
+  text-align: center;
 }
 
 .slide img {
   width: 100%;
-  height: 400px;
+  height: 150px;
   object-fit: cover;
   display: block;
-}
-
-.slide figcaption {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  padding: 5px 10px;
   border-radius: 5px;
 }
 
-
-.prev-btn, .next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
+.slide figcaption {
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
 }
-
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
-
-
 
 /* CONTACT */
 #contact { padding:40px 20px; text-align:center; }
@@ -168,12 +144,3 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
-
-
-
-
-
-
-
-
-
