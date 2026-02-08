@@ -18,30 +18,30 @@ lightbox.addEventListener('click', e => {
 });
 
 // Funkcja przewijająca
-window.onload = function() {
-    const slider = document.getElementById('slider');
-    
-    if (!slider) {
-        console.error("Nie znaleziono elementu o id 'slider'!");
-        return;
-    }
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+const totalSlides = slides.length;
 
-    const scrollAmount = 315; // Szerokość zdjęcia (300px) + gap (15px)
+// Funkcja do pokazywania następnego slajdu
+function showSlide(i) {
+  if(i < 0) index = totalSlides - 1;
+  else if(i >= totalSlides) index = 0;
+  else index = i;
 
-    function autoScroll() {
-        // Sprawdzamy czy doszliśmy do końca
-        if (slider.scrollLeft >= (slider.scrollWidth - slider.clientWidth - 10)) {
-            slider.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-            slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    }
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
 
-    // Start co 5 sekund
-    let timer = setInterval(autoScroll, 5000);
+// Automatyczne przewijanie co 5 sekund
+setInterval(() => {
+  showSlide(index + 1);
+}, 5000);
 
-    // Zatrzymywanie po najechaniu myszką
-    slider.addEventListener('mouseenter', () => clearInterval(timer));
-    slider.addEventListener('mouseleave', () => timer = setInterval(autoScroll, 5000));
+// Obsługa przycisków
+function scrollSlider(direction) {
+  showSlide(index + direction);
+}
+
 };
+
 
