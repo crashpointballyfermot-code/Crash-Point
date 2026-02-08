@@ -1,26 +1,8 @@
-// ================= FORMULARZ =================
-const form = document.querySelector('form');
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert("Thanks for contacting Crash Point! We'll get back to you soon.");
-    form.reset();
-});
-
-// ================= HAMBURGER MENU =================
-const menuToggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('header nav');
-
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
-
 // ================= LIGHTBOX =================
+const images = document.querySelectorAll('.slide img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
 const closeBtn = document.querySelector('.lightbox .close');
-
-// Wybieramy wszystkie zdjęcia w sekcjach Services i About
-const images = document.querySelectorAll('.service-img, .about-img');
 
 images.forEach(img => {
     img.addEventListener('click', () => {
@@ -30,14 +12,25 @@ images.forEach(img => {
     });
 });
 
-// Zamknięcie lightbox po kliknięciu X
 closeBtn.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 
-// Zamknięcie lightbox po kliknięciu poza obraz
-lightbox.addEventListener('click', (e) => {
+lightbox.addEventListener('click', e => {
     if (e.target === lightbox) {
         lightbox.style.display = 'none';
     }
+});
+
+// ================= SLIDER =================
+const slider = document.getElementById('slider');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+
+nextBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: 240, behavior: 'smooth' });
+});
+
+prevBtn.addEventListener('click', () => {
+    slider.scrollBy({ left: -240, behavior: 'smooth' });
 });
