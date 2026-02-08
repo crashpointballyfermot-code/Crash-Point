@@ -41,7 +41,20 @@ setInterval(() => {
 function scrollSlider(direction) {
   showSlide(index + direction);
 }
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+
+function showNextSlide() {
+  index++;
+  if(index >= slides.length) index = 0;
+  slider.style.transform = `translateX(-${index * 100}%)`;
+}
+
+// Automatyczne przewijanie co 5 sekund
+setInterval(showNextSlide, 5000);
 
 };
+
 
 
