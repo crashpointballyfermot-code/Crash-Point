@@ -96,13 +96,13 @@
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
   // === EMAILJS ===
-  emailjs.init("user_oYUR4LqA2Blm0n7MR"); // <-- wstaw swój Public Key
+  emailjs.init("TWÓJ_PUBLIC_KEY"); // <-- wstaw swój Public Key
 
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
     emailjs.sendForm(
-      "service_o4oysin",    // <-- wstaw swój Service ID    
-      "template_2l3526x",   // <-- wstaw swój Template ID
+      "TWÓJ_SERVICE_ID",    // <-- wstaw swój Service ID
+      "TWÓJ_TEMPLATE_ID",   // <-- wstaw swój Template ID
       this
     ).then(function() {
       alert('Message sent successfully!');
@@ -138,4 +138,6 @@
 
 </body>
 </html>
+
+
 
