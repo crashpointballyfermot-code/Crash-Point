@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crash Point - Car & Body Repair</title>
 <style>
+/* ----------------- Global ----------------- */
 body {
     background: #111;
     color: #fff;
@@ -12,9 +13,14 @@ body {
     margin: 0;
 }
 
-header, footer, section {
-    text-align: center;
-    padding: 20px;
+a {
+    text-decoration: none;
+}
+
+/* ----------------- Header ----------------- */
+header {
+    background-color: #ff6600; /* jaskrawy pomarańczowy */
+    padding: 15px 20px;
 }
 
 header .header-top {
@@ -22,33 +28,49 @@ header .header-top {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 header .logo {
     height: 60px;
 }
 
-/* Nagłówki */
+header .header-info {
+    text-align: left;
+}
+
+header .call-us {
+    background-color: #111;
+    color: #ff6600;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+/* ----------------- Nagłówki ----------------- */
 #about h2, #services h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #services h2 {
     color: #ff6600; /* jaskrawy pomarańcz */
 }
 
-/* Zdjęcie About Us */
+/* ----------------- About Us Image ----------------- */
 .about-img {
-    width: 80%;       /* zdjęcie zajmuje 80% szerokości kontenera */
-    max-width: 600px; /* maksymalna szerokość */
-    height: auto;     /* proporcje zachowane */
+    width: 80%;
+    max-width: 600px;
+    height: auto;
     border-radius: 12px;
     margin: 20px auto;
     display: block;
 }
 
-/* Slider */
+/* ----------------- Slider ----------------- */
 .slider-wrapper {
     overflow-x: hidden;
     width: 100%;
@@ -89,7 +111,7 @@ header .logo {
     text-align: center;
 }
 
-/* Contact form */
+/* ----------------- Contact Form ----------------- */
 .contact-form input,
 .contact-form textarea {
     width: 80%;
@@ -108,6 +130,14 @@ header .logo {
     border-radius: 6px;
     cursor: pointer;
 }
+
+/* ----------------- Footer ----------------- */
+footer {
+    background-color: #111;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
 </style>
 </head>
 <body>
@@ -120,8 +150,8 @@ header .logo {
             <p>📞 +353 87 237 25 91</p>
             <p>✉️ crashpointballyfermot@gmail.com</p>
         </div>
+        <a href="tel:+353872372591" class="call-us">Call Us</a>
     </div>
-    <a href="tel:+353872372591" class="call-us">Call Us</a>
 </header>
 
 <section id="about">
@@ -185,8 +215,6 @@ setInterval(() => {
 
 </body>
 </html>
-
-
 
 
 
