@@ -4,23 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crash Point - Car & Body Repair</title>
-<link rel="stylesheet" href="style.css">
 <style>
-/* ----------------- Nagłówki ----------------- */
-#about h2,
-#services h2 {
+body {
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+header, footer, section {
     text-align: center;
-    font-size: 2.5em; /* wyrównany rozmiar */
-    margin: 20px 0;
+    padding: 20px;
+}
+
+header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .logo {
+    height: 60px;
+}
+
+/* Nagłówki */
+#about h2, #services h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
 #services h2 {
     color: #ff6600; /* jaskrawy pomarańcz */
 }
 
-/* ----------------- Poziomy Slider ----------------- */
+/* Slider */
 .slider-wrapper {
-    overflow: hidden;
+    overflow-x: hidden;
     width: 100%;
     max-width: 1200px;
     margin: 20px auto;
@@ -29,11 +49,15 @@
 .slider {
     display: flex;
     gap: 20px;
-    transition: transform 0.5s ease-in-out;
+    scroll-snap-type: x mandatory;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
 }
 
 .slide {
-    flex: 0 0 250px; /* szerokość jednego zdjęcia */
+    flex: 0 0 auto;
+    width: 250px;
+    scroll-snap-align: start;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,22 +79,7 @@
     text-align: center;
 }
 
-/* ----------------- Reszta stylów ----------------- */
-header, footer, section {
-    padding: 20px;
-    text-align: center;
-}
-
-header .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header .logo {
-    height: 60px;
-}
-
+/* Contact form */
 .contact-form input,
 .contact-form textarea {
     width: 80%;
@@ -147,27 +156,25 @@ header .logo {
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('.slide');
-    const slideWidth = slides[0].offsetWidth + 20; // 20px gap
-    const wrapper = document.querySelector('.slider-wrapper');
-    const visibleSlides = Math.floor(wrapper.offsetWidth / slideWidth);
-    let index = 0;
+// Automatyczne przewijanie slidera
+const slider = document.getElementById('slider');
+let scrollAmount = 0;
 
-    setInterval(() => {
-        index++;
-        if(index > slides.length - visibleSlides){
-            index = 0;
-        }
-        slider.style.transform = `translateX(-${index * slideWidth}px)`;
-    }, 3000); // zmiana co 3 sekundy
-});
+setInterval(() => {
+    if(scrollAmount >= slider.scrollWidth - slider.clientWidth){
+        scrollAmount = 0; // powrót do początku
+    } else {
+        scrollAmount += 270; // przesuwamy o szerokość jednego slajdu + gap
+    }
+    slider.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}, 3000);
 </script>
 
 </body>
 </html>
-
 
 
 
