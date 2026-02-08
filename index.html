@@ -19,33 +19,38 @@ a {
 
 /* ----------------- Header ----------------- */
 header {
-    background-color: #ff6600; /* jaskrawy pomarańczowy */
+    background-color: #ff6600; /* jaskrawy pomarańcz */
     padding: 15px 20px;
 }
 
-header .header-top {
+.header-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* centrum headera */
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
+    position: relative;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
 }
 
 header .logo {
     height: 60px;
-}
-
-header .header-info {
-    text-align: left;
+    margin: 0 auto;
 }
 
 header .call-us {
     background-color: #111;
     color: #ff6600;
-    padding: 10px 20px;
+    padding: 8px 16px;
     border-radius: 6px;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 5px;
     display: inline-block;
 }
 
@@ -138,19 +143,33 @@ footer {
     text-align: center;
     color: #fff;
 }
+
+/* ----------------- Responsywność ----------------- */
+@media screen and (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-left {
+        align-items: center;
+        text-align: center;
+    }
+    header .call-us {
+        margin-top: 5px;
+    }
+}
 </style>
 </head>
 <body>
 
 <header>
     <div class="header-top">
-        <img src="images/logo.png" alt="Crash Point Logo" class="logo">
-        <div class="header-info">
+        <div class="header-left">
             <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22</p>
             <p>📞 +353 87 237 25 91</p>
-            <p>✉️ crashpointballyfermot@gmail.com</p>
+            <a href="tel:+353872372591" class="call-us">Call Us</a>
         </div>
-        <a href="tel:+353872372591" class="call-us">Call Us</a>
+        <img src="images/logo.png" alt="Crash Point Logo" class="logo">
     </div>
 </header>
 
@@ -215,6 +234,7 @@ setInterval(() => {
 
 </body>
 </html>
+
 
 
 
