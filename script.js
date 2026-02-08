@@ -13,48 +13,35 @@ images.forEach(img => {
 });
 
 closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+
 lightbox.addEventListener('click', e => {
     if (e.target === lightbox) lightbox.style.display = 'none';
 });
 
-// Funkcja przewijająca
+// SLIDER AUTOMATYCZNY
 const slider = document.getElementById('slider');
-const slides = document.querySelectorAll('.slide');
+const slides = Array.from(document.querySelectorAll('.slide'));
+const slideWidth = slides[0].offsetWidth + 10; // szerokość + margin
 let index = 0;
-const totalSlides = slides.length;
 
-// Funkcja do pokazywania następnego slajdu
-function showSlide(i) {
-  if(i < 0) index = totalSlides - 1;
-  else if(i >= totalSlides) index = 0;
-  else index = i;
+// Duplikujemy slajdy dla płynnego loopa
+slider.innerHTML += slider.innerHTML;
 
-  slider.style.transform = `translateX(-${index * 100}%)`;
+// Funkcja przesuwająca slider
+function moveSlider() {
+    index++;
+    slider.style.transition = 'transform 1s ease';
+    slider.style.transform = `translateX(-${index * slideWidth}px)`;
+
+    if(index >= slides.length) {
+        // resetujemy po zakończeniu pętli
+        setTimeout(() => {
+            slider.style.transition = 'none';
+            slider.style.transform = 'translateX(0)';
+            index = 0;
+        }, 1000);
+    }
 }
 
 // Automatyczne przewijanie co 5 sekund
-setInterval(() => {
-  showSlide(index + 1);
-}, 5000);
-
-// Obsługa przycisków
-function scrollSlider(direction) {
-  showSlide(index + direction);
-}
-const slider = document.getElementById('slider');
-const slides = document.querySelectorAll('.slide');
-let index = 0;
-
-function showNextSlide() {
-  index++;
-  if(index >= slides.length) index = 0;
-  slider.style.transform = `translateX(-${index * 100}%)`;
-}
-
-// Automatyczne przewijanie co 5 sekund
-setInterval(showNextSlide, 5000);
-
-};
-
-
-
+setInterval(moveSlider, 5000);
