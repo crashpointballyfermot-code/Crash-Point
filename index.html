@@ -133,6 +133,28 @@ function resetAutoScroll(){
     }, intervalTime);
 }
 </script>
+<!-- EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+   (function(){
+      emailjs.init(oYUR4LqA2Blm0n7MR);
+   })();
+</script>
+<script>
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // zapobiega przeładowaniu strony
+
+    emailjs.sendForm('service_o4oysin', 'template_213526x', this)
+    .then(function() {
+        alert('Message sent successfully!');
+    }, function(error) {
+        alert('Failed to send message. Please try again.');
+        console.log('FAILED...', error);
+    });
+
+    this.reset(); // czyści formularz po wysłaniu
+});
+</script>
 
 </body>
 </html>
