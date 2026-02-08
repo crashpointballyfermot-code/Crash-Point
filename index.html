@@ -14,7 +14,7 @@
     <div></div>
     <img src="images/logo.png" alt="Crash Point Logo" class="logo">
     <div class="header-info">
-      <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22, D22 Y7X2</p>
+      <p>Unit 8 Green Isle Business Park, Clodalkin, Dublin 22, D22 Y7X2</p>
       <p>+353 87 237 25 91</p>
       <p>crashpointballyfermot@gmail.com</p>
     </div>
@@ -28,9 +28,9 @@
 <section id="about">
   <h2>About</h2>
   <img src="images/about.jpg" alt="About Crash Point" class="about-img">
-  <p style="text-align:center; max-width:800px; margin:0 auto; color:#fff;">
-    Crash Point is your trusted car repair and bodywork specialist in Dublin. We handle all types of services including 
-    <strong>mechanics (engine, clutch, gear box replacement), panel beating, welding</strong> and more.
+  <p style="text-align:center; max-width: 800px; margin:0 auto; color:#fff;">
+    Crash Point offers complete car care: <strong>mechanics, panel beating, welding</strong>.<br>
+    Engine, clutch, gear box replacement – even the largest jobs handled professionally.
   </p>
 </section>
 
@@ -38,34 +38,42 @@
 <section id="services">
   <h2>Our Services</h2>
   <div class="gallery">
+
     <figure>
-      <img src="images/bodywork.jpg" alt="Bodywork Repair">
+      <img src="images/bodywork.jpg" alt="Bodywork Service">
       <figcaption>Bodywork Repair</figcaption>
     </figure>
+
     <figure>
-      <img src="images/paint.jpg" alt="Paint Work">
+      <img src="images/paint.jpg" alt="Painting Service">
       <figcaption>Paint Work</figcaption>
     </figure>
+
     <figure>
-      <img src="images/welding.jpg" alt="Welding Services">
-      <figcaption>Welding Services</figcaption>
+      <img src="images/welding.jpg" alt="Welding Service">
+      <figcaption>Welding</figcaption>
     </figure>
+
     <figure>
-      <img src="images/carservice.jpg" alt="Car Service">
+      <img src="images/mechanic.jpg" alt="Car Service">
       <figcaption>Car Service</figcaption>
     </figure>
+
     <figure>
-      <img src="images/brakes.jpg" alt="Brake Pads Replacement">
+      <img src="images/brake.jpg" alt="Brake Pads Replacement">
       <figcaption>Brake Pads Replacement</figcaption>
     </figure>
+
     <figure>
       <img src="images/engine.jpg" alt="Engine Replacement">
       <figcaption>Engine Replacement</figcaption>
     </figure>
+
     <figure>
       <img src="images/tyres.jpg" alt="Tyres Replacement">
       <figcaption>Tyres Replacement</figcaption>
     </figure>
+
   </div>
 </section>
 
@@ -95,14 +103,18 @@
 <!-- ================= JAVASCRIPT ================= -->
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-  // === EMAILJS ===
-  emailjs.init("TWÓJ_PUBLIC_KEY"); // <-- wstaw swój Public Key
+  // ===== INIT EMAILJS =====
+  (function(){
+    emailjs.init("TWÓJ_PUBLIC_KEY"); // <-- wklej tutaj swój Public Key w cudzysłowie
+  })();
 
+  // ===== OBSŁUGA FORMULARZA =====
   document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    event.preventDefault(); 
+
     emailjs.sendForm(
-      "TWÓJ_SERVICE_ID",    // <-- wstaw swój Service ID
-      "TWÓJ_TEMPLATE_ID",   // <-- wstaw swój Template ID
+      "TWÓJ_SERVICE_ID",    // <-- wklej swój Service ID w cudzysłowie
+      "TWÓJ_TEMPLATE_ID",   // <-- wklej swój Template ID w cudzysłowie
       this
     ).then(function() {
       alert('Message sent successfully!');
@@ -110,10 +122,11 @@
       alert('Failed to send message. Please try again.');
       console.log('FAILED...', error);
     });
+
     this.reset();
   });
 
-  // === LIGHTBOX ===
+  // ===== LIGHTBOX =====
   const images = document.querySelectorAll('.gallery img');
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.querySelector('.lightbox-img');
@@ -132,7 +145,7 @@
   });
 
   lightbox.addEventListener('click', e => {
-    if(e.target === lightbox) lightbox.style.display = 'none';
+    if (e.target === lightbox) lightbox.style.display = 'none';
   });
 </script>
 
