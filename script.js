@@ -21,3 +21,24 @@ lightbox.addEventListener('click', e => {
 const slider = document.getElementById('slider');
 const nextBtn = document.getElementById('nextBtn');
 const prevBtn = document.getElementById('prev
+
+const slider = document.querySelector('.slider');
+
+let scrollAmount = 0;
+const slideWidth = 275; // szerokość slide + gap
+const delay = 5000; // 5 sekund
+
+setInterval(() => {
+    if (!slider) return;
+
+    scrollAmount += slideWidth;
+
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+        scrollAmount = 0; // wraca na początek
+    }
+
+    slider.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+    });
+}, delay);
