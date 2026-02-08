@@ -52,31 +52,34 @@ header {
 h2 { color:#ff6600; margin-bottom:30px; }
 
 /* SLIDER */
-/* Styl dla slidera */
+
 .slider {
-    display: flex;
-    overflow-x: hidden; /* Ukrywa pasek przewijania, by nie psuł wyglądu */
+.slider-wrapper {
+    overflow: hidden; /* Ukrywamy to, co wystaje poza ekran */
+    width: 100%;
+    position: relative;
+}
+
+.slider {
+    display: flex; /* Układa zdjęcia w poziomie */
+    flex-wrap: nowrap; /* WAŻNE: zabrania zdjęciom przechodzenia pod spód */
+    overflow-x: auto; /* Pozwala na ruch */
     scroll-behavior: smooth;
     gap: 15px;
-    padding: 20px 0;
+    -ms-overflow-style: none;  /* Ukrywa pasek w IE */
+    scrollbar-width: none;  /* Ukrywa pasek w Firefox */
 }
 
-.slide {
-    flex: 0 0 300px; /* Stała szerokość zdjęcia */
-}
-
-.slide img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-
-}
-
-/* Ukrycie paska przewijania (opcjonalnie) */
+/* Ukrywa pasek przewijania w Chrome/Safari */
 .slider::-webkit-scrollbar {
     display: none;
 }
+
+.slide {
+    flex: 0 0 300px; /* Każdy slajd ma dokładnie 300px szerokości */
+    max-width: 300px;
+}
+
 /* CONTACT */
 #contact { padding:40px 20px; text-align:center; }
 .contact-form {
@@ -132,6 +135,7 @@ h2 { color:#ff6600; margin-bottom:30px; }
     .call-us { right:15px; bottom:15px; }
     .slide { flex:0 0 180px; }
 }
+
 
 
 
