@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crash Point - Car & Body Repair</title>
     <link rel="stylesheet" href="style.css">
-    <!-- FontAwesome dla ikony telefonu -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -93,42 +92,7 @@
 </footer>
 
 <!-- ================= JAVASCRIPT ================= -->
-<script>
-    const images = document.querySelectorAll('.slide img');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.querySelector('.lightbox-img');
-    const closeBtn = document.querySelector('.lightbox .close');
-
-    images.forEach(img => {
-        img.addEventListener('click', () => {
-            lightbox.style.display = 'flex';
-            lightboxImg.src = img.src;
-            lightboxImg.alt = img.alt;
-        });
-    });
-
-    closeBtn.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
-
-    lightbox.addEventListener('click', e => {
-        if (e.target === lightbox) {
-            lightbox.style.display = 'none';
-        }
-    });
-
-    const slider = document.getElementById('slider');
-    const nextBtn = document.querySelector('.next');
-    const prevBtn = document.querySelector('.prev');
-
-    nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: 240, behavior: 'smooth' });
-    });
-
-    prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -240, behavior: 'smooth' });
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
