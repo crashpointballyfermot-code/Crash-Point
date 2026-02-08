@@ -21,21 +21,21 @@ a {
 header {
     background-color: #ff6600; /* jaskrawy pomarańcz */
     padding: 15px 20px;
-}
-
-.header-top {
     display: flex;
-    justify-content: space-between; /* logo na środku */
-    align-items: center;
-    flex-wrap: wrap;
+    justify-content: center; /* wyśrodkowanie logo w osi strony */
+    position: relative;
 }
 
 header .logo {
-    height: 100px; /* większe logo */
-    margin: 0 auto;
+    height: 120px; /* większe logo */
+    display: block;
 }
 
 .header-right {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -55,7 +55,7 @@ header .call-us {
 #about h2, #services h2, #contact h2 {
     font-size: 2.5em;
     text-align: center;
-    color: #ff6600; /* jaskrawy pomarańcz dla wszystkich nagłówków */
+    color: #ff6600; /* jaskrawy pomarańcz */
     margin-bottom: 20px;
 }
 
@@ -122,7 +122,7 @@ header .call-us {
 .contact-form {
     display: flex;
     flex-direction: column;
-    align-items: center; /* wszystkie pola jedno pod drugim */
+    align-items: center;
     margin: 20px 0;
 }
 
@@ -155,14 +155,11 @@ footer {
 
 /* ----------------- Responsywność ----------------- */
 @media screen and (max-width: 768px) {
-    .header-top {
-        flex-direction: column;
+    header .header-right {
+        position: static;
+        transform: none;
         align-items: center;
-        gap: 15px;
-    }
-    .header-right {
-        align-items: center;
-        text-align: center;
+        margin-top: 15px;
     }
 }
 </style>
@@ -170,14 +167,11 @@ footer {
 <body>
 
 <header>
-    <div class="header-top">
-        <div></div> <!-- pusta lewa strona -->
-        <img src="images/logo.png" alt="Crash Point Logo" class="logo">
-        <div class="header-right">
-            <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22</p>
-            <p>📞 +353 87 237 25 91</p>
-            <a href="tel:+353872372591" class="call-us">Call Us</a>
-        </div>
+    <img src="images/logo.png" alt="Crash Point Logo" class="logo">
+    <div class="header-right">
+        <p>Unit 8 Green Isle Business Park, Clondalkin, Dublin 22</p>
+        <p>📞 +353 87 237 25 91</p>
+        <a href="tel:+353872372591" class="call-us">Call Us</a>
     </div>
 </header>
 
